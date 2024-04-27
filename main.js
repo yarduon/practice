@@ -63,7 +63,6 @@ Array.from(document.getElementsByClassName("selector")).forEach((e) => {
 });
 
 document.getElementById("confirm-answer").addEventListener("click", () => {
-  console.log(result);
   if (document.getElementById("answer").value == result) {
     calculate(
       document.getElementById("operator").value,
@@ -73,4 +72,5 @@ document.getElementById("confirm-answer").addEventListener("click", () => {
   } else {
     document.getElementById("error").innerHTML = "Incorrect answer!";
   }
+  document.getElementById("answer").value = "";
 });
