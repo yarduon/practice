@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maths</title>
     <script type="module" src="./main.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div>
-        <label>Operator:</label>
-        <select class="selector" name="operator" id="operator">
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">*</option>
-        </select>
-        <label>Number:</label>
-        <select class="selector" name="number" id="number">
-        </select>
+      <label>Operator:</label>
+      <select class="selector" name="operator" id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+      </select>
+      <label>Number:</label>
+      <select class="selector" name="number" id="number"></select>
     </div>
     <p id="operation"></p>
-    <input id="answer" type="text">
-    <input type="button" value="OK" id="confirm-answer">
-    <p style="color:red" id="error"></p>
-</body>
+    <input id="answer" type="text" />
+    <input type="button" value="OK" id="confirm-answer" />
+    <p style="color: red" id="error"></p>
+    <details>
+      <summary>Solutions:</summary>
+      <p id="solutions"></p>
+    </details>
+  </body>
 </html>

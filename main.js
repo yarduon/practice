@@ -15,6 +15,31 @@ function calculate(operator, number) {
   }
   document.getElementById("operation").innerHTML =
     number + "" + operator + "" + secondNumber;
+
+  showSolutions(
+    document.getElementById("operator").value,
+    +document.getElementById("number").value
+  );
+}
+
+function showSolutions(operator, number) {
+  document.getElementById("solutions").innerHTML = "";
+  let result = 0;
+  for (let i = 0; i < 11; i++) {
+    switch (operator) {
+      case "+":
+        result = number + i;
+        break;
+      case "-":
+        result = number - i;
+        break;
+      default:
+        result = number * i;
+        break;
+    }
+    document.getElementById("solutions").innerHTML +=
+      number + "" + operator + "" + i + " = " + result + "<br>";
+  }
 }
 
 for (let i = 9; i > 0; i--) {
@@ -25,10 +50,10 @@ for (let i = 9; i > 0; i--) {
 }
 
 Array.from(document.getElementsByClassName("selector")).forEach((e) => {
-    calculate(
-        document.getElementById("operator").value,
-        +document.getElementById("number").value
-      );
+  calculate(
+    document.getElementById("operator").value,
+    +document.getElementById("number").value
+  );
   e.addEventListener("change", () => {
     calculate(
       document.getElementById("operator").value,
@@ -38,14 +63,14 @@ Array.from(document.getElementsByClassName("selector")).forEach((e) => {
 });
 
 document.getElementById("confirm-answer").addEventListener("click", () => {
-    console.log(result);
-    if(document.getElementById("answer").value == result){
-        calculate(
-            document.getElementById("operator").value,
-            +document.getElementById("number").value
-          );
-        document.getElementById("error").innerHTML = "";
-    } else {
-        document.getElementById("error").innerHTML = "Incorrect answer!"
-    }
-})
+  console.log(result);
+  if (document.getElementById("answer").value == result) {
+    calculate(
+      document.getElementById("operator").value,
+      +document.getElementById("number").value
+    );
+    document.getElementById("error").innerHTML = "";
+  } else {
+    document.getElementById("error").innerHTML = "Incorrect answer!";
+  }
+});
