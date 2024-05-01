@@ -1,3 +1,5 @@
+import QrScanner from "./qr-scanner.min.js";
+
 let result = 0;
 
 function calculate(operator, number) {
@@ -74,3 +76,11 @@ document.getElementById("confirm-answer").addEventListener("click", () => {
   }
   document.getElementById("answer").value = "";
 });
+
+const qrScanner = new QrScanner(
+  document.getElementById("video"),
+  result => console.log('decoded qr code:', result),
+  { true: true },
+  
+);
+qrScanner.start();
