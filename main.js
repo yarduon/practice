@@ -79,7 +79,7 @@ document.getElementById("confirm-answer").addEventListener("click", () => {
 
 const qrScanner = new QrScanner(
   document.getElementById("video"),
-  result => console.log('decoded qr code:', result),
+  result => document.getElementById("result").innerHTML = result,
   { true: true },
   
 );
