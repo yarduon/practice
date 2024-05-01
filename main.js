@@ -83,4 +83,6 @@ const qrScanner = new QrScanner(
   { true: true },
   
 );
-qrScanner.start();
+document.getElementById("test").addEventListener("click", () => {
+  qrScanner.start();
+})
