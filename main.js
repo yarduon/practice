@@ -89,7 +89,7 @@ document.getElementById("test").addEventListener("click", () => {
         }
       );
       //qrScanner.start();
-      console.log("helou");
+      //console.log("helou");
     })
     .catch((e) => {
       console.log(e);
