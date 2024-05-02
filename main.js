@@ -87,9 +87,11 @@ document.getElementById("test").addEventListener("click", () => {
         highlightCodeOutline: true,
       }
     );
-    qrScanner.start().catch((e) => {
+    QrScanner.listCameras();
+    // Ask permission?
+    console.log(QrScanner.listCameras(true));
+    /* qrScanner.start().catch((e) => {
       console.log("No tienes camara");
-    });
+    }); */
   });
-  console.log("helou");
 });
