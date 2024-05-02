@@ -91,8 +91,9 @@ document.getElementById("test").addEventListener("click", () => {
     // Ask permission?
     QrScanner.listCameras(true)
     console.log(QrScanner.listCameras());
-    /* qrScanner.start().catch((e) => {
+     qrScanner.start().catch((e) => {
       console.log("No tienes camara");
-    }); */
+    }); 
+      qrScanner.destroy();
   });
 });
