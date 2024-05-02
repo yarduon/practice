@@ -90,7 +90,7 @@ document.getElementById("test").addEventListener("click", () => {
       );
       qrScanner.start();
     })
-    .catch(() => {
-      console.log("No tienes camara");
+    .catch((e) => {
+      console.log(e);
     });
 });
