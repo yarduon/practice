@@ -79,11 +79,12 @@ document.getElementById("confirm-answer").addEventListener("click", () => {
 
 const qrScanner = new QrScanner(
   document.getElementById("video"),
-  result => document.getElementById("result").innerHTML = result.data,
-  { true: true },
-  
+  (result) => (document.getElementById("result").innerHTML = result.data),
+  {
+    highlightScanRegion: true,
+    highlightCodeOutline: true,
+  }
 );
 document.getElementById("test").addEventListener("click", () => {
   qrScanner.start();
-  qrScanner.highlightCodeOutline = true;
-})
+});
