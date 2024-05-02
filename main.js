@@ -87,7 +87,7 @@ const qrScanner = new QrScanner(
 );
 
 document.getElementById("test").addEventListener("click", () => {
-  qrScanner.hasCamera();
-  console.log(qrScanner.hasCamera());
+  QrScanner.hasCamera();
+  console.log(QrScanner.hasCamera());
   qrScanner.start();
 })
