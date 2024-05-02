@@ -77,18 +77,20 @@ document.getElementById("confirm-answer").addEventListener("click", () => {
   document.getElementById("answer").value = "";
 });
 
-
-
 document.getElementById("test").addEventListener("click", () => {
-  QrScanner.hasCamera().then(() => {
-    const qrScanner = new QrScanner(
-      document.getElementById("reader"),
-      result => document.getElementById("result").innerHTML = result.data,
-      {
-        highlightScanRegion: true,
-        highlightCodeOutline: true
-      }
-    );
-    qrScanner.start();
-  })
-})
+  QrScanner.hasCamera()
+    .then(() => {
+      const qrScanner = new QrScanner(
+        document.getElementById("reader"),
+        (result) => (document.getElementById("result").innerHTML = result.data),
+        {
+          highlightScanRegion: true,
+          highlightCodeOutline: true,
+        }
+      );
+      qrScanner.start();
+    })
+    .catch(() => {
+      console.log("No tienes camara");
+    });
+});
