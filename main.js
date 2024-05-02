@@ -77,9 +77,10 @@ document.getElementById("confirm-answer").addEventListener("click", () => {
   document.getElementById("answer").value = "";
 });
 
+const qrScanner = "";
 document.getElementById("test").addEventListener("click", () => {
   QrScanner.hasCamera().then(() => {
-    const qrScanner = new QrScanner(
+    qrScanner = new QrScanner(
       document.getElementById("reader"),
       (result) => (document.getElementById("result").innerHTML = result.data),
       {
