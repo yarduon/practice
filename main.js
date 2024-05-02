@@ -88,7 +88,7 @@ document.getElementById("test").addEventListener("click", () => {
           highlightCodeOutline: true,
         }
       );
-      qrScanner.start();
+      //qrScanner.start();
       console.log("helou");
     })
     .catch((e) => {
