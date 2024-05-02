@@ -79,12 +79,15 @@ document.getElementById("confirm-answer").addEventListener("click", () => {
 
 const qrScanner = new QrScanner(
   document.getElementById("video"),
-  (result) => (document.getElementById("result").innerHTML = result.data),
+  result => document.getElementById("result").innerHTML = result.data,
   {
     highlightScanRegion: true,
-    highlightCodeOutline: true,
+    highlightCodeOutline: true
   }
 );
+
 document.getElementById("test").addEventListener("click", () => {
+  qrScanner.hasCamera();
+  console.log(qrScanner.hasCamera());
   qrScanner.start();
-});
+})
