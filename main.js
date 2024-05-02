@@ -85,4 +85,5 @@ const qrScanner = new QrScanner(
 );
 document.getElementById("test").addEventListener("click", () => {
   qrScanner.start();
+  qrScanner._calculateScanRegion();
 })
