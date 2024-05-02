@@ -88,3 +88,4 @@ document.getElementById("test").addEventListener("click", () => {
   console.log("hola");
   qrScanner._calculateScanRegion();
 })
+console.log("h");
