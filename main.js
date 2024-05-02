@@ -94,5 +94,8 @@ document.getElementById("test").addEventListener("click", () => {
     }); 
   });
 });
+document.getElementById("delete").addEventListener("click", () => {
+  qrScanner.stop();
+})
 
 
