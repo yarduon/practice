@@ -91,9 +91,6 @@ document.getElementById("test").addEventListener("click", () => {
      qrScanner.start().catch((e) => {
       console.log("No tienes camara");
     }); 
-    document.getElementById("delete").addEventListener("click", () => {
-      qrScanner.destroy();
-    })
   });
 });
 
