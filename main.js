@@ -92,19 +92,15 @@ document.getElementById("start").addEventListener("click", () => {
   qrScanner
     .start()
     .then(() => {
-      QrScanner.listCameras(true)
-        .then((cameras) =>
-          cameras.forEach((camera) => {
-            console.log(camera);
-          })
-        )
-        .catch(() => {
-          console.log("Uncaught in promise de List");
-          qrScanner.remove();
-        });
+      QrScanner.listCameras(true).then((cameras) =>
+        cameras.forEach((camera) => {
+          console.log(camera);
+        })
+      );
     })
     .catch(() => {
-      console.log("Uncaught in promiso de Scanner");
+      qrScanner.destroy();
+      console.log("No hay camara");
     });
 });
 
