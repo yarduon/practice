@@ -77,13 +77,14 @@ document.getElementById("confirm-answer").addEventListener("click", () => {
   document.getElementById("answer").value = "";
 });
 
-document.getElementById("test").addEventListener("click", () => {
+let qrScanner = "";
+document.getElementById("start").addEventListener("click", () => {
   // Pide permisos y lista todas las camaras
   QrScanner.listCameras(true).then((cameras) => {
     // Crear escaner
     if (cameras.length >= 1) {
       console.log("Hay camaras");
-      const qrScanner = new QrScanner(
+      qrScanner = new QrScanner(
         document.getElementById("reader"),
         (result) => (document.getElementById("result").innerHTML = result.data),
         {
@@ -96,4 +97,8 @@ document.getElementById("test").addEventListener("click", () => {
       ("No hay camaras disponibles");
     }
   });
+});
+
+document.getElementById("stop").addEventListener("click", () => {
+  qrScanner.stop();
 });
