@@ -79,21 +79,26 @@ document.getElementById("confirm-answer").addEventListener("click", () => {
 
 let qrScanner = "";
 document.getElementById("start").addEventListener("click", () => {
-  // Pide permisos y lista todas las camaras
-  QrScanner.listCameras(true).then(() => {
-    // Crear escaner
-    qrScanner = new QrScanner(
-      document.getElementById("reader"),
-      (result) => (document.getElementById("result").innerHTML = result.data),
-      {
-        highlightScanRegion: true,
-        highlightCodeOutline: true,
-      }
-    );
-    qrScanner.start().catch(() => {
-      qrScanner.destroy();
-      console.log("No hay camara");
-    });
+  // Crear escaner
+  qrScanner = new QrScanner(
+    document.getElementById("reader"),
+    (result) => (document.getElementById("result").innerHTML = result.data),
+    {
+      highlightScanRegion: true,
+      highlightCodeOutline: true,
+    }
+  );
+  qrScanner.setCamera("environment");
+  qrScanner.start().then(() => {
+    QrScanner.listCameras(true)
+      .then((cameras) =>
+        cameras.forEach((camera) => {
+          console.log(camera);
+        })
+      )
+      .catch(() => {
+        qrScanner.remove();
+      });
   });
 });
 
