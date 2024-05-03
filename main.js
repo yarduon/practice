@@ -97,6 +97,7 @@ document.getElementById("start").addEventListener("click", () => {
         })
       )
       .catch(() => {
+        console.log("Uncaught in promise");
         qrScanner.remove();
       });
   });
