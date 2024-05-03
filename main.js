@@ -89,18 +89,23 @@ document.getElementById("start").addEventListener("click", () => {
     }
   );
   qrScanner.setCamera("environment");
-  qrScanner.start().then(() => {
-    QrScanner.listCameras(true)
-      .then((cameras) =>
-        cameras.forEach((camera) => {
-          console.log(camera);
-        })
-      )
-      .catch(() => {
-        console.log("Uncaught in promise");
-        qrScanner.remove();
-      });
-  });
+  qrScanner
+    .start()
+    .then(() => {
+      QrScanner.listCameras(true)
+        .then((cameras) =>
+          cameras.forEach((camera) => {
+            console.log(camera);
+          })
+        )
+        .catch(() => {
+          console.log("Uncaught in promise de List");
+          qrScanner.remove();
+        });
+    })
+    .catch(() => {
+      console.log("Uncaught in promiso de Scanner");
+    });
 });
 
 document.getElementById("stop").addEventListener("click", () => {
