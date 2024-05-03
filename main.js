@@ -80,25 +80,21 @@ document.getElementById("confirm-answer").addEventListener("click", () => {
 let qrScanner = "";
 document.getElementById("start").addEventListener("click", () => {
   // Pide permisos y lista todas las camaras
-  QrScanner.listCameras(true)
-    .then(() => {
-      // Crear escaner
-      qrScanner = new QrScanner(
-        document.getElementById("reader"),
-        (result) => (document.getElementById("result").innerHTML = result.data),
-        {
-          highlightScanRegion: true,
-          highlightCodeOutline: true,
-        }
-      );
-      qrScanner.start();
-    })
-    .catch(() => {
-      console.log("Esto es el catch");
-    })
-    .finally(() => {
-      console.log("Esto es el finally");
+  QrScanner.listCameras(true).then(() => {
+    // Crear escaner
+    qrScanner = new QrScanner(
+      document.getElementById("reader"),
+      (result) => (document.getElementById("result").innerHTML = result.data),
+      {
+        highlightScanRegion: true,
+        highlightCodeOutline: true,
+      }
+    );
+    qrScanner.start().catch(() => {
+      qrScanner.destroy();
+      console.log("No hay camara");
     });
+  });
 });
 
 document.getElementById("stop").addEventListener("click", () => {
