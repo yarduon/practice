@@ -97,7 +97,7 @@ document.getElementById("test").addEventListener("click", () => {
 document.getElementById("delete").addEventListener("click", () => {
   // ¿No hace nada?
   QrScanner.listCameras(true).then(cameras => cameras.forEach(camera => {
-    console.log(camera);
+    console.log(camera.id);
   }));
 })
 
