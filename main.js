@@ -78,18 +78,18 @@ document.getElementById("confirm-answer").addEventListener("click", () => {
 });
 
 document.getElementById("test").addEventListener("click", () => {
-  QrScanner.listCameras(true).then((cameras) =>
-    cameras.forEach((cameras) => {
-      console.log(cameras);
-      const qrScanner = new QrScanner(
-        document.getElementById("reader"),
-        (result) => (document.getElementById("result").innerHTML = result.data),
-        {
-          highlightScanRegion: true,
-          highlightCodeOutline: true,
-        }
-      );
-      qrScanner.start();
-    })
-  );
+  // Pide permisos y lista todas las camaras
+  QrScanner.listCameras(true).then((cameras) => {
+    console.log(cameras);
+    // Crear escaner
+    const qrScanner = new QrScanner(
+      document.getElementById("reader"),
+      (result) => (document.getElementById("result").innerHTML = result.data),
+      {
+        highlightScanRegion: true,
+        highlightCodeOutline: true,
+      }
+    );
+    qrScanner.start();
+  });
 });
