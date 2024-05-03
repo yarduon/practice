@@ -99,5 +99,5 @@ document.getElementById("start").addEventListener("click", () => {
 
 document.getElementById("stop").addEventListener("click", () => {
   qrScanner.stop();
-  document.getElementsByClassName("scan-region-highlight")[0].remove;
+  document.getElementsByClassName("scan-region-highlight")[0].remove();
 });
