@@ -79,6 +79,9 @@ document.getElementById("confirm-answer").addEventListener("click", () => {
 
 let qrScanner = "";
 document.getElementById("start").addEventListener("click", () => {
+  QrScanner.hasCamera().catch(() => {
+    console.log("Nuevo mensaje: no hay camara");
+  });
   // Crear escaner
   qrScanner = new QrScanner(
     document.getElementById("reader"),
