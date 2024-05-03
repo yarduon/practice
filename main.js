@@ -79,9 +79,7 @@ document.getElementById("confirm-answer").addEventListener("click", () => {
 
 let qrScanner = "";
 document.getElementById("start").addEventListener("click", () => {
-  QrScanner.hasCamera().then((a) => {
-    a ? console.log(a) : console.log("falso");
-  });
+ 
   // Crear escaner
   qrScanner = new QrScanner(
     document.getElementById("reader"),
