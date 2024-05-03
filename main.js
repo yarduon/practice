@@ -82,6 +82,7 @@ document.getElementById("test").addEventListener("click", () => {
   QrScanner.listCameras(true).then((cameras) => {
     // Crear escaner
     if (cameras.length >= 1) {
+      console.log("Hay camaras");
       const qrScanner = new QrScanner(
         document.getElementById("reader"),
         (result) => (document.getElementById("result").innerHTML = result.data),
