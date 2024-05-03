@@ -77,28 +77,19 @@ document.getElementById("confirm-answer").addEventListener("click", () => {
   document.getElementById("answer").value = "";
 });
 
-let qrScanner = "";
 document.getElementById("test").addEventListener("click", () => {
-  QrScanner.hasCamera().then(() => {
-    qrScanner = new QrScanner(
-      document.getElementById("reader"),
-      (result) => (document.getElementById("result").innerHTML = result.data),
-      {
-        highlightScanRegion: true,
-        highlightCodeOutline: true,
-      }
-    );
-    ;
-     qrScanner.start().catch((e) => {
-      console.log("No tienes camara");
-    }); 
-  });
+  QrScanner.listCameras(true).then((cameras) =>
+    cameras.forEach((cameras) => {
+      console.log(cameras);
+      const qrScanner = new QrScanner(
+        document.getElementById("reader"),
+        (result) => (document.getElementById("result").innerHTML = result.data),
+        {
+          highlightScanRegion: true,
+          highlightCodeOutline: true,
+        }
+      );
+      qrScanner.start();
+    })
+  );
 });
-document.getElementById("delete").addEventListener("click", () => {
-  // ¿No hace nada?
-  QrScanner.listCameras(true).then(cameras => cameras.forEach(camera => {
-    console.log(camera);
-  }));
-})
-
-
